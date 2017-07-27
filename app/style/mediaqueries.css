@@ -1,0 +1,40 @@
+
+
+/* Media queries for .widget */
+@media (max-width: 600px) {
+    .hamburger-header {
+        width: 55%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .bar1, .bar2, .bar3 {
+        pointer-events: none;
+        width: 70px;
+        height: 6px;
+        background-color: white;
+        margin: 7px 0;
+        transition: 1s;
+    }
+
+    .img-container {
+        height:100%;
+    }
+    .content-widget {
+        flex: 100%;
+        font-size:1em;
+    }
+    .imger {
+        margin: auto;
+    }
+
+    .navbar-header {
+        display:none;
+    }
+    .show {
+        width:70%;
+    }
+    .move {
+        margin-left: -70%;
+    }
+}

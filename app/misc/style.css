@@ -1,0 +1,17 @@
+
+/*Main parts*/
+@import url("base/base.css");
+@import url("base/header.css");
+@import url("base/news.css");
+@import url("base/flex.css");
+@import url("base/content.css");
+@import url("base/footer.css");
+
+/*Forms*/
+@import url("forms/edit.css");
+@import url("forms/login.css");
+
+/*Extra parts*/
+@import url("mediaqueries.css");
+@import url("featured.css");
+@import url("arrowdown.css");
