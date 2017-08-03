@@ -31,6 +31,7 @@ class Home extends React.Component {
                          Kontakta mig
                      </button>
                 </div>
+
                 </div>
 
             <div className='content wrapper'>
@@ -41,23 +42,18 @@ class Home extends React.Component {
 
             <div className='featured-widget' style={{color:"#27A87E"}}>
                 <h1> Eller du kanske vill se mina projekt? </h1>
-                <button
-                    className='featured-button'
-                    style={{background:"#27A87E"}}
-                    type='submit'>
-                    Se Projekt
-                </button>
+                <Link className='featured-button' style={{background:"#27A87E"}} to='/projects'>
+                    Se projekt
+                </Link>
             </div>
 
-            <div className='featured-widget' style={{color:"#27A87E", borderTop: "0.1px solid silver"}}>
+            <div className='featured-widget' style={{color:'#27A87E', borderTop: '0.1px solid silver'}}>
                 <h1> Eller ... </h1>
                 <p> så kanske du vill veta hur denna sida är skapad? </p>
-                <button
-                    className='featured-button'
-                    style={{background:"#27A87E"}}
-                    type='submit'>
+                <Link className='featured-button' style={{background:"#27A87E"}} to='/aboutpage'>
                     Ja visa mig hur!
-                </button>
+                </Link>
+
             </div>
         </div>
     )

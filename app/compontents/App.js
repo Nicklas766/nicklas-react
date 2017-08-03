@@ -12,6 +12,7 @@ var Home = require('./Home');
 var About = require('./About');
 var Projects = require('./Projects');
 var Results = require('./Results');
+var AboutPage = require('./AboutPage');
 
 
 class App extends React.Component {
@@ -25,6 +26,7 @@ class App extends React.Component {
                         <Route exact path='/about' component={About} />
                         <Route exact path='/projects' component={Projects} />
                         <Route path='/projects/results' component={Results} />
+                        <Route path='/aboutpage' component={AboutPage} />
                         <Route render={() => <p>Not Found </p>} />
                     </Switch>
             </WrappedApp>

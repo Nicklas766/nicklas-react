@@ -65,6 +65,7 @@ class Projects extends React.Component {
     }
 
     componentDidMount() {
+      window.scrollTo(0, 0);
         // AJAX request
         this.updateProjects(this.state.selectedLanguage);
     }

@@ -17,6 +17,7 @@
 
 .featured-button {
     background:none;
+    font-family: "Times New Roman", Times, serif;
     border:solid 1px lightgray;
     text-decoration:none;
     padding: 10px;

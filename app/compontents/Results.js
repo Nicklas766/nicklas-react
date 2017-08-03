@@ -5,20 +5,31 @@ var Link = require('react-router-dom').Link;
 var PropTypes = require('prop-types');
 
 
-
 function Project(props) {
     return (
-        <div>
-            <h1>{props.project.name}</h1>
-            <h3>namn: {props.project.name}</h3>
-            <h3>Språk: {props.project.language}</h3>
-            <img
-                className='avatar'
-                src={props.project.img}
-                alt={'Avatar for ' + props.project.name}
-            />
-            <h3>Beskrivning: {props.project.description}</h3>
-            <li>Länk till projektet: <a href={props.project.link}>{props.project.link}</a></li>
+        <div className='wrapper' style={{width:"85%", margin:"24px auto"}}>
+          <div className='wrapper' style={{border:"solid 1px black"}}>
+              <div style={{width:"45%"}}>
+              <img
+                  style={{width:"100%", minHeight:"280px", height:"100%"}}
+                  src={props.project.img}
+                  alt={'Avatar for ' + props.project.name}
+              />
+              </div>
+              <div style={{width:"55%", background:"white", color:"black", textAlign:"center"}}>
+                <table style={{height:"100%", width:"100%"}}>
+                  <tr> <th>Namn:</th><td>{props.project.name}</td> </tr>
+                  <tr> <th>Fullständigt namn:</th> <td>{props.project.fullName}</td> </tr>
+                  <tr> <th>Språk:</th> <td>{props.project.language}</td> </tr>
+                  <tr> <th>Betyg:</th> <td>{props.project.grade}</td> </tr>
+                  <tr> <th>Länk till projektet: </th> <td><a href={props.project.link}>{props.project.link}</a></td> </tr>
+                </table>
+              </div>
+            </div>
+
+            <div style={{width:"100%", color:"black"}}>
+              <p> {props.project.description}</p>
+            </div>
         </div>
     )
 }
@@ -73,7 +84,7 @@ class Results extends React.Component {
             )
         }
         return (
-            <div className='row'>
+            <div style={{background:"white", minHeight:"700px", maxWidth:"760px", margin:"auto"}}>
             <Project
                 project={this.state.project}
              />
