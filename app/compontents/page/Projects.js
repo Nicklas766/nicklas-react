@@ -1,7 +1,10 @@
 var React = require('react');
 var PropTypes = require('prop-types');
-var api = require('../utils/api');
+var api = require('../../utils/api');
 var Link = require('react-router-dom').Link;
+var Popup = require('../Popup');
+var queryString = require('query-string');
+var Results = require('./Results');
 
 
 function SelectOption(props) {
@@ -35,10 +38,7 @@ function ProjectGrid(props) {
             />
             <li><Link
                 className='button'
-                to={{
-                    pathname: props.match.url + '/results',
-                    search: '?project=' + project.id
-                }}>
+                to={'/projects/' + project.id}>
                 Läs mer
             </Link></li>
             <li>{project.language}</li>
@@ -93,14 +93,17 @@ class Projects extends React.Component {
 
 
     render() {
-        console.log(this.state.projects);
+        var project = queryString.parse(this.props.location.search);
+        console.log(project);
         return (
-            <div className='news-wrapper' style={{backgroundImage: "url('app/img/typing.jpg')", minHeight:1000}}>
+            <div className='news-wrapper' style={{backgroundImage: "url('app/img/typing.jpg')", minHeight:700}}>
+
+            {this.props.match.params.id != undefined && <Results id={this.props.match.params.id} key={this.props.match.params.id} />}
                 <div className='featured-widget'>
-                <h1> Välj hur du vill sortera </h1>
-                <SelectOption options={["Språk", "Typ"]} selected={this.state.selectedOption} onSelect={this.updateOption}/>
-                {this.state.selectedOption == "Språk" && <SelectOption selected={this.state.selectedLanguage} options={["Alla", "PHP", "Javascript", "Python"]} onSelect={this.updateProjects}/>}
-                {this.state.selectedOption == "Typ" && <SelectOption selected={this.state.selectedLanguage} options={["Skolprojekt", "Hobby"]} onSelect={this.updateProjects}/>}
+                    <h1> Välj hur du vill sortera </h1>
+                    <SelectOption options={["Språk", "Typ"]} selected={this.state.selectedOption} onSelect={this.updateOption}/>
+                    {this.state.selectedOption == "Språk" && <SelectOption selected={this.state.selectedLanguage} options={["Alla", "PHP", "Javascript", "Python"]} onSelect={this.updateProjects}/>}
+                    {this.state.selectedOption == "Typ" && <SelectOption selected={this.state.selectedLanguage} options={["Skolprojekt", "Hobby"]} onSelect={this.updateProjects}/>}
 
                 </div>
                 {!this.state.projects ? <ul className="news-container"><div className='loader'> Loading...</div></ul> : <ProjectGrid projects={this.state.projects} match={this.props.match} />}

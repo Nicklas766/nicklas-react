@@ -1,45 +1,63 @@
 var React = require('react');
 var axios = require('axios');
 
+function Popup(props) {
+    return (
+        <div className={"popup"} style={{background:props.background}}>
+            <p>{props.text}</p>
+            <p className={"popclose"} onClick={props.onSelect}>X</p>
+        </div>
+    );
+}
+
 class ContactForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
         name: '',
         email: '',
-        text: 'Type your message here'
+        text: 'Type your message here',
+        popup: false
     };
 
       this.handleInputChange = this.handleInputChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handlePopup = this.handlePopup.bind(this);
     }
 
     handleInputChange(event) {
       this.setState({[event.target.name]: event.target.value});
     }
 
-    handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.name);
-      alert('An e-mail was submitted: ' + this.state.email);
-      alert('A text was submitted: ' + this.state.text);
-      axios.post('mailto:Nicklas766@live.se', {
-        name: "Nicklas",
-        mail: "nicklas766@live.se",
-        comments: "mitt meddelande"
+    handlePopup() {
+      this.setState({popup: false});
+    }
 
-      })
+    handleSubmit(event) {
+
+      var encodedURI = window.encodeURI('http://nicklasenvall.se/api.php/contact');
+      axios.post(encodedURI, `name=${this.state.name}&email=${this.state.email}&message=${this.state.text}`)
       .then(function (response) {
         console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
+      this.setState({
+        name: '',
+        email: '',
+        text: 'Type your message here',
+        popup: true
+    });
       event.preventDefault();
     }
 
   render () {
     return (
         <div className="login-widget">
+
+        {this.state.popup && <Popup text={"Tack för ditt meddelande!"} background={"green"} onSelect={this.handlePopup} />}
+
         <form onSubmit={this.handleSubmit}>
           <input
             name={"name"}

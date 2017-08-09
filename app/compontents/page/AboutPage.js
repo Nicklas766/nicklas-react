@@ -1,13 +1,12 @@
 var React = require('react');
 var Link = require('react-router-dom').Link;
-var ContactForm = require('./ContactForm');
 
 class AboutPage extends React.Component {
 
   render () {
     return (
-      <div className='wrapper' style={{background:"#27A87E"}}>
-      <ContactForm />
+      <div className='wrapper' style={{background:"#27A87E", minHeight: "700px"}}>
+
 
       <div className='featured-widget' style={{color:"white"}}>
         <h1> Om sidan</h1>

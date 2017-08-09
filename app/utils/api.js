@@ -24,7 +24,11 @@ module.exports = {
 
         return axios.get(encodedURI)
             .then(function (users) {
-                return users.data;
+                if (lang == "Alla") {
+                    return users.data;
+                }
+                return users.data.filter(obj => obj.language.includes(lang));
+
             });
     }
 };

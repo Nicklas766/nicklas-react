@@ -1,5 +1,6 @@
 var React = require('react');
 var Link = require('react-router-dom').Link;
+var ContactForm = require('../ContactForm');
 
 function ContentWidget(props) {
     return (
@@ -15,27 +16,45 @@ function ContentWidget(props) {
 
 
 class Home extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        contact: false
+    };
+
+      this.handleToggleContact = this.handleToggleContact.bind(this);
+    }
+
+    handleToggleContact() {
+      this.setState({contact: !this.state.contact});
+    }
 
   render () {
-
     return (
         <div className='wrapper' style={{background:"white"}}>
 
-            <div className='news-wrapper' style={{backgroundImage: "url('app/img/coffee.jpg')", height:700}}>
+
+            <div className='news-wrapper' style={{backgroundImage: "url('app/img/coffee.jpg')", minHeight:700}}>
+
                 <div className='featured-widget'>
                     <h1> Välkommen till min sida! </h1>
                     <p> Vill du kontakta mig?</p>
                     <button
                          className='featured-button'
-                         type='submit'>
+                         onClick={this.handleToggleContact}>
                          Kontakta mig
                      </button>
+
+                     {this.state.contact && <ContactForm />}
+
                 </div>
+
 
                 </div>
 
             <div className='content wrapper'>
                 <ContentWidget background={"https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png"} text={"Kika gärna på min Github"} title={"Github"} />
+                <ContentWidget background={"https://d30y9cdsu7xlg0.cloudfront.net/png/45447-200.png"} text={"Läs gärna mer om mig"} title={"Om mig"} />
                 <ContentWidget background={"https://d30y9cdsu7xlg0.cloudfront.net/png/45447-200.png"} text={"Läs gärna mer om mig"} title={"Om mig"} />
             </div>
 

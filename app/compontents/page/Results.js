@@ -1,9 +1,9 @@
 var React = require('react');
 var queryString = require('query-string');
-var api = require('../utils/api');
+var api = require('../..//utils/api');
 var Link = require('react-router-dom').Link;
 var PropTypes = require('prop-types');
-
+var Popup = require('../Popup');
 
 function Project(props) {
     return (
@@ -45,7 +45,8 @@ class Results extends React.Component {
         };
     }
     componentDidMount () {
-        var project = queryString.parse(this.props.location.search);
+        console.log("hello");
+        var project = this.props.id;
         api.fetchProject([
             project.project
         ]).then(function (results) {
@@ -61,34 +62,28 @@ class Results extends React.Component {
 
             this.setState(() => ({
                 error: null,
-                project: results[0],
+                project: results[(this.props.id - 1)],
                 loading: false,
             })
             );
         }.bind(this));
     }
+
     render() {
-        var error = this.state.error;
-        var loading = this.state.loading;
 
-        if (loading === true) {
-            return <div className='loader'> Loading...</div>
-        }
 
-        if (error) {
-            return (
-                <div>
-                    <p> {error} </p>
-                    <Link to='/battle'>Reset</Link>
-                </div>
-            )
-        }
         return (
-            <div style={{background:"white", minHeight:"700px", maxWidth:"760px", margin:"auto"}}>
-            <Project
-                project={this.state.project}
-             />
-            </div>
+                <Popup>
+
+
+                    <div style={{background:"white", maxWidth:"760px", margin:"auto"}}>
+                    {this.state.loading && <div className='loader'> Loading...</div>}
+                    {this.state.error && <h1> this.state.error </h1>}
+                    {!this.state.loading && <Project project={this.state.project} />}
+
+                    </div>
+                </Popup>
+
         )
     }
 }
