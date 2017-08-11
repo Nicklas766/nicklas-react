@@ -3,16 +3,16 @@
 *****************************************************************************/
 .header {
     position:fixed;
-    height:100px;
+    height:90px;
     background: #04232D;
-    transition:0.5s;
+    transition: all 0.5s;
     z-index:100;
     width: 100%;
 }
 /* Instead of JavaSript, use default div to get correct margins between next div after header */
 .header-default {
     width:100%;
-    height:100px;
+    height:90px;
     background: #04232D;
     box-shadow: 0 .25em .25em rgba(0,0,0,.1);
     border-bottom: solid 1px black;

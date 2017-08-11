@@ -1,6 +1,8 @@
 var React = require('react');
 var Footer = require('./Footer');
 var NavLink = require('react-router-dom').NavLink;
+var Link = require('react-router-dom').Link;
+
 function Header(props) {
     return (
     <div className='header-default'>
@@ -41,11 +43,21 @@ function Header(props) {
 function HiddenMenu(props) {
     return (
         <div className={props.className}>
-            <div className="dropdown-header"> <h1> LogoText </h1> </div>
-          <a href="index.php">Home</a>
-          <a href="index.php">About</a>
-          <a href="index.php">News</a>
-          <a href="edit.php">Edit</a>
+            <div className="dropdown-header"> <h1> Meny </h1> </div>
+            <Link exact activeClassName='active' to='/'>
+                Home
+            </Link>
+
+            <Link activeClassName='active' to='/about'>
+                Om mig
+            </Link>
+
+            <Link activeClassName='active' to='/projects'>
+                Projekt
+            </Link>
+            <Link activeClassName='active' to='/aboutpage'>
+                Om sidan
+            </Link>
         </div>
     );
 }
@@ -70,7 +82,7 @@ class WrappedApp extends React.Component {
 
     handleScroll(event) {
 
-        if (event.pageY > 10) {
+        if (window.scrollY > 0) {
             this.setState({
               headerClass: 'scroll-header header wrapper'
             });

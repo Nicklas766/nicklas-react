@@ -16,15 +16,13 @@ function Project(props) {
                   alt={'Avatar for ' + props.project.name}
               />
               </div>
-              <div style={{width:"55%", background:"white", color:"black", textAlign:"center"}}>
-                <table style={{height:"100%", width:"100%"}}>
+              <table className='flexTable'>
                   <tr> <th>Namn:</th><td>{props.project.name}</td> </tr>
                   <tr> <th>Fullständigt namn:</th> <td>{props.project.fullName}</td> </tr>
                   <tr> <th>Språk:</th> <td>{props.project.language}</td> </tr>
                   <tr> <th>Betyg:</th> <td>{props.project.grade}</td> </tr>
-                  <tr> <th>Länk till projektet: </th> <td><a href={props.project.link}>{props.project.link}</a></td> </tr>
+                  <tr> <th>Länk till projektet: </th> <td> {props.project.link && <Link to={props.project.link} target={"_blank"}>{props.project.link}</Link>}</td> </tr>
                 </table>
-              </div>
             </div>
 
             <div style={{width:"100%", color:"black"}}>

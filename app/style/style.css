@@ -21,6 +21,60 @@
 body {
     font-family: 'Luckiest Guy', cursive;
 }
+.flexTable {
+    width: 54.6%;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.flexTable tr {
+    display:flex;
+    flex-wrap:wrap;
+    width: 100%;
+}
+
+.flexTable td {
+
+    width: 62.5%;
+    overflow:auto;
+
+}
+
+.flexTable th {
+    width: 30%;
+}
+/* Media queries for .widget */
+@media (max-width: 1499px) {
+    .flexTable {
+        width: 54%;
+    }
+    .flexTable td {
+
+        width: 100%;
+
+    }
+
+    .flexTable th {
+        width: 100%;
+    }
+
+    }
+
+.arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 30px;
+    margin: auto;
+    position:relative;
+    animation:vibrate2 0.7s infinite;
+    cursor:pointer;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
 .infoBar {
     display: flex;
     flex-direction: row;
@@ -93,6 +147,24 @@ table, td, th {
     }
     75% {
         top: 1.5px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+@keyframes vibrate2 {
+    0% {
+        top: 0px;
+    }
+    25% {
+        top: -3px;
+    }
+    50% {
+        top: 0px;
+    }
+    75% {
+        top: 3px;
     }
     100% {
         top: 0px;

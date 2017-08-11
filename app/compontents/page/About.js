@@ -4,6 +4,10 @@ var ClickShow = require('../ClickShow');
 
 class About extends React.Component {
 
+    componentDidMount() {
+      window.scrollTo(0, 0);
+    }
+
   render () {
 
     return (
@@ -16,24 +20,24 @@ class About extends React.Component {
 
         <div className='wrapper' style={{margin:"0 auto 250px", width:"50%", color:"#009CE6"}}>
           <ClickShow title={"Om mig"}>
-              <p> Jag har bott i Stockholm hela mitt liv. Jag tror att folk uppfattar mig som trevlig, rolig och snäll.
+              <p> Jag är 21 år och har bott i Stockholm hela mitt liv. Jag tror att folk uppfattar mig som trevlig, rolig och snäll.
                Det är det man strävar att folk ska tycka iallafall. Favoritfilmen måste vara Sagan om ringen, såklart. </p>
                <p> Jag har några intressen, mitt största just nu är programmering. </p>
           </ClickShow>
 
           <ClickShow title={"Utbildning"}>
-              <p> Jag började studera webbprogrammering på Blekinge Tekniska Högskola, i augusti 2016.
+              <p> Jag började mina studier för webbprogrammering på Blekinge Tekniska Högskola, i augusti 2016.
               Jag har alltid haft ett tekniskt intresse, men när jag väl började utbildningen så insåg jag att
-              webbprogrammering verkligen var något för mig. Jag studerar 100% på distans och jobbar 25%.</p>
-              <p> Sedan jag startade utbildningen så startades verkligen en eld inombords, jag älskar programmering,
-              jag vill alltid lära mig nya saker inom det och bli en bättre programmerare.  </p>
+              webbprogrammering verkligen var något för mig.</p>
+              <p> Sedan jag startade utbildningen så startades verkligen en eld inombords, vilket är viljan
+               att lära sig, för att bli en bättre programmerare.  </p>
           </ClickShow>
 
 
           <ClickShow title={"Jobb"}>
-              <p> Det är ett år kvar på utbildningen. Jag har arbetat i cirka 1 år och 7 månader för ett stort företag
-              där jag dagligen har kontakt saker som angår e-handel. E-handel är något som jag tycker är riktigt intressant.
-              Däremot är tjänsten inte relaterat till webbprogrammering.</p>
+              <p> Jag har jobbat i ca 1 år och 7 månader för ett stort företag där jag har daglig kontakt
+               med e-handelswebbplatser och kunder. E-handel är något som jag tycker är väldigt intressant.</p>
+              <p> Tjänsten är dock inte relaterad till webbutveckling. </p>
           </ClickShow>
 
           </div>

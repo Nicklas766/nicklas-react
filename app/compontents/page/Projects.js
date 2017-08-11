@@ -96,7 +96,7 @@ class Projects extends React.Component {
         var project = queryString.parse(this.props.location.search);
         console.log(project);
         return (
-            <div className='news-wrapper' style={{backgroundImage: "url('app/img/typing.jpg')", minHeight:700}}>
+            <div className='news-wrapper' style={{backgroundImage: "url('http://voidzy.com/img/typing.jpg')", minHeight:700}}>
 
             {this.props.match.params.id != undefined && <Results id={this.props.match.params.id} key={this.props.match.params.id} />}
                 <div className='featured-widget'>

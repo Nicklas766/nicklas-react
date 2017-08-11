@@ -11,7 +11,7 @@ function handleError(error) {
 module.exports = {
     fetchProject: function (id) {
         console.log("im started");
-        var encodedURI = window.encodeURI('http://nicklasenvall.se/api.php/projects?id=' + id);
+        var encodedURI = window.encodeURI('http://voidzy.com/MySQL-JSONify/api.php/projects?id=' + id);
 
         return axios.get(encodedURI)
             .then(function (users) {
@@ -20,7 +20,7 @@ module.exports = {
     },
     fetchProjects: function (lang) {
         console.log("im started");
-        var encodedURI = window.encodeURI('http://nicklasenvall.se/api.php/projects');
+        var encodedURI = window.encodeURI('http://voidzy.com/MySQL-JSONify/api.php/projects');
 
         return axios.get(encodedURI)
             .then(function (users) {

@@ -32,7 +32,6 @@ class App extends React.Component {
                             <Route path='/projects/:id' component={Projects} />
 
 
-
                         <Route path='/aboutpage' component={AboutPage} />
                         <Route render={() => <p>Not Found </p>} />
                     </Switch>

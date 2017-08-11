@@ -1,6 +1,41 @@
 
 
 /* Media queries for .widget */
+@media (max-width: 1750px) {
+    .show {
+        width:30%;
+    }
+    .move {
+        margin-left: -30%;
+    }
+}
+
+@media (max-width: 1251px) {
+    .show {
+        width:40%;
+    }
+    .move {
+        margin-left: -40%;
+    }
+}
+
+@media (max-width: 900px) {
+    .show {
+        width:50%;
+    }
+    .move {
+        margin-left: -50%;
+    }
+}
+
+@media (max-width: 875px) {
+    .logo-header a {
+        font-size: 2.1em;
+    }
+}
+
+
+/* Media queries for .widget */
 @media (max-width: 600px) {
     .hamburger-header {
         width: 55%;
@@ -36,5 +71,8 @@
     }
     .move {
         margin-left: -70%;
+    }
+    .news-wrapper .arrow {
+         display:none;
     }
 }

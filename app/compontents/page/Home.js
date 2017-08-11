@@ -4,13 +4,13 @@ var ContactForm = require('../ContactForm');
 
 function ContentWidget(props) {
     return (
-        <div className='content-widget'>
+        <Link className={'content-widget'} style={{textDecoration:"none"}} to={props.link} target={props.target && props.target}>
             <div className='img-container'>
                 <div className="imger" style={{backgroundImage: "url(" + props.background + ")"}}/>
             </div>
                 <p> {props.text} </p>
                 <h1> {props.title} </h1>
-        </div>
+        </Link>
     );
 }
 
@@ -34,28 +34,30 @@ class Home extends React.Component {
         <div className='wrapper' style={{background:"white"}}>
 
 
-            <div className='news-wrapper' style={{backgroundImage: "url('app/img/coffee.jpg')", minHeight:700}}>
+            <div className='news-wrapper' style={{backgroundImage: "url('http://voidzy.com/img/laptop2.jpg')", minHeight: "900px"}}>
 
-                <div className='featured-widget'>
+                <div className='featured-widget' style={{color: "white", marginTop: "124px"}}>
                     <h1> Välkommen till min sida! </h1>
                     <p> Vill du kontakta mig?</p>
                     <button
                          className='featured-button'
                          onClick={this.handleToggleContact}>
-                         Kontakta mig
+                         {!this.state.contact ? <div>Kontakta mig</div> : <div>Kontakta mig [X]</div>}
                      </button>
 
                      {this.state.contact && <ContactForm />}
 
                 </div>
 
+                {!this.state.contact && <p className='arrow down'/>}
+
 
                 </div>
 
             <div className='content wrapper'>
-                <ContentWidget background={"https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png"} text={"Kika gärna på min Github"} title={"Github"} />
-                <ContentWidget background={"https://d30y9cdsu7xlg0.cloudfront.net/png/45447-200.png"} text={"Läs gärna mer om mig"} title={"Om mig"} />
-                <ContentWidget background={"https://d30y9cdsu7xlg0.cloudfront.net/png/45447-200.png"} text={"Läs gärna mer om mig"} title={"Om mig"} />
+                <ContentWidget background={"http://www.voidzy.com/img/github.png"} text={"Kika gärna på min Github"} title={"Github"} link="https://github.com/Nicklas766" target="_blank" />
+                <ContentWidget background={"http://www.voidzy.com/img/me.png"} text={"Läs gärna mer om mig"} title={"Om mig"} link={"/about"}/>
+                <ContentWidget background={"http://www.voidzy.com/img/bth.png"} text={"Se vad jag studerar"} title={"Skola"} link={"https://www.bth.se/distansutbildningar/webbprogrammering/"} target={"_blank"}/>
             </div>
 
 
